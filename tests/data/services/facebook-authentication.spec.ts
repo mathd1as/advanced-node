@@ -1,9 +1,5 @@
 import { FacebookAuthentication } from '@/domain/features'
-// import { AuthenticationError } from '@/domain/errors'
-
-class AuthenticationError {
-  token = ''
-}
+import { AuthenticationError } from '@/domain/errors'
 
 class FacebookAuthenticationService {
   constructor(
