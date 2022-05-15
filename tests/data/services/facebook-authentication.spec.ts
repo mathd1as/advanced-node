@@ -4,6 +4,7 @@ import { LoadFacebookUserApi } from '@/data/contracts/apis'
 
 import { mock, MockProxy } from 'jest-mock-extended'
 import { SaveFacebookAcountRepository, LoadUserAccountRepository } from '@/data/contracts/reopos'
+// import { FacebookAccount } from '@/domain/models'
 
 describe('FacebookAuthenticationService', () => {
   let facebookApi: MockProxy<LoadFacebookUserApi>
@@ -76,38 +77,12 @@ describe('FacebookAuthenticationService', () => {
     expect(userAccounteRepo.load).toHaveBeenCalledTimes(1)
   })
 
-  it('should not update accounte name', async () => {
-    userAccounteRepo.load.mockResolvedValue({
-      id: 'any_id',
-      name: 'any_name'
-    })
+  // it('Should call SaveUserAccountRepo with FacebookAccount', async () => {
+  //   const FacebookAccountStub = jest.fn().mockImplementation(() => ({ any: 'any' }))
+  //   jest.mocked(FacebookAccount).mockImplementation(FacebookAccountStub)
+  //   await sut.perform({ token })
 
-    await sut.perform({ token })
-
-    expect(userAccounteRepo.saveWithFacebook).toHaveBeenCalledWith({
-      id: 'any_id',
-      name: 'any_name',
-      email: 'any_email',
-      facebookId: 'any_facebookId'
-    })
-
-    expect(userAccounteRepo.saveWithFacebook).toHaveBeenCalledTimes(1)
-  })
-
-  it('should update accounte name', async () => {
-    userAccounteRepo.load.mockResolvedValue({
-      id: 'any_id'
-    })
-
-    await sut.perform({ token })
-
-    expect(userAccounteRepo.saveWithFacebook).toHaveBeenCalledWith({
-      id: 'any_id',
-      name: 'any_name',
-      email: 'any_email',
-      facebookId: 'any_facebookId'
-    })
-
-    expect(userAccounteRepo.saveWithFacebook).toHaveBeenCalledTimes(1)
-  })
+  //   expect(userAccounteRepo.saveWithFacebook).toHaveBeenCalledWith({})
+  //   expect(userAccounteRepo.saveWithFacebook).toHaveBeenCalledTimes(1)
+  // })
 })
