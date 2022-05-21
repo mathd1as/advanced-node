@@ -34,7 +34,7 @@
     "jest-mock-extended": "^2.0.6",
     "jsonwebtoken": "^8.5.1",
     "lint-staged": "^12.4.1",
-    "pg-mem": "^2.4.3",
+    "pg-mem": "^1.9.11",
     "ts-jest": "^28.0.2",
     "typescript": "^4.6.4"
   },
@@ -47,6 +47,6 @@
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "typeorm": "^0.3.6"
+    "typeorm": "0.2.29"
   }
 }
